@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="auth.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body
+    class="container lg:max-w-[1280px] max-w-[950px] authBg flex lg:flex-row flex-col lg:items-start items-center justify-between"
+  >
+    <div
+      class="lg:w-[35%] md:w-1/2 w-[90%] flex flex-col lg:items-start items-center"
+    >
+      <img
+        src="../assets/icons/logo.svg"
+        alt="logo"
+        class="lg:w-[130px] w-[100px] lg:h-[60px] h-[60px]"
+      />
+      <div
+        class="w-full flex flex-col items-center justify-center gap-[25px] lg:ml-8 lg:mt-[24%] mt-[10%]"
+      >
+        <div class="w-full flex-col text-center">
+          <h1 class="heading lg:text-[28px] text-[20px] text-[#262A2A]">
+            Sign In
+          </h1>
+          <p class="title lg:text-[13px] text-[12px] text-[#6F6F6F]">
+            Access the CRMS panel using your email and passcode.
+          </p>
+        </div>
+        <div class="flex flex-col items-center w-full gap-[15px]">
+          <div class="flex flex-col items-start gap-1 w-full">
+            <label for="username" class="field-label">Email Address</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="w-full h-[38px] px-4 rounded-full outline-none"
+              required
+            />
+          </div>
+          <div class="flex flex-col items-start gap-1 w-full">
+            <label for="password" class="field-label">Password</label>
+            <div class="relative w-full">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="w-full h-[38px] pl-4 pr-10 rounded-full outline-none"
+                required
+              />
+              <img
+                src="../assets/icons/eyeclose.svg"
+                alt="eyeclose"
+                class="w-8 h-5 absolute right-2 bottom-[24%] eye-icon"
+              />
+            </div>
+          </div>
+          <div class="w-full flex flex-row items-center justify-between">
+            <div class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="remember"
+                name="remember"
+                class="w-4 h-4 rounded-1 cursor-pointer"
+              />
+              <label for="remember" class="title text-[13px] text-[#6F6F6F]"
+                >Remember me</label
+              >
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="#" class="title text-[13px] text-[#4A00E5]"
+                >Forgot Password?</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex flex-col gap-[10px]">
+          <input
+            type="submit"
+            value="Sign In"
+            class="w-full text-[14px] authButton"
+          />
+          <div class="w-full">
+            <p class="createAccount text-left">
+              New on our platform?&nbsp;<a
+                href="signup.html"
+                class="font-[500] text-[#4A00E5]"
+                >Create an account</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="md:w-[54%] w-1/2 h-auto lg:flex md:hidden hidden relative">
+      <img
+        src="../assets/images/signInImage.png"
+        alt=""
+        class="h-auto w-auto"
+      />
+    </div>
+  </body>
+</html>

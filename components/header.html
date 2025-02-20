@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>header</title>
+    <link rel="stylesheet" href="component.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="w-full bg-[#F4F7FB]">
+    <div
+      class="md:p-3 p-2 md:w-full w-fit bg-white flex md:flex-row flex-col md:items-center items-start md:justify-center justify-center gap-2 relative"
+    >
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/Repair.svg"
+          alt="Repair"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[50px] w-full md:text-center text-start"
+        >
+          Repair
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+
+        <!-- hover part not responsive -->
+        <div
+          class="bg-white md:p-6 p-2 md:rounded-b-lg rounded-r-lg shadow-md md:flex hidden flex-wrap justify-between absolute md:top-[140%] top-0 md:left-0 left-[107%] md:w-[500%] w-[100%] z-10"
+        >
+          <div
+            class="flex items-center space-x-4 p-2 rounded-lg cursor-pointer md:w-[50%] w-full"
+          >
+            <div class="bg-blue-200 text-blue-600 text-2xl p-3 rounded-lg">
+              <img
+                src="../assets/icons/ManageInvoice.svg"
+                alt="ManageInvoice"
+                class="md:w-full w-[16px] h-auto"
+              />
+            </div>
+            <div>
+              <h3
+                class="text-[#147DC8] md:text-[16px] text-[14px] font-[500] font-noto"
+              >
+                Manage Invoice
+              </h3>
+              <p
+                class="text-[#29343D] md:text-[12px] text-[10px] font-[300] font-noto"
+              >
+                Get Latest Invoice
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center space-x-4 p-2 rounded-lg cursor-pointer md:w-[50%] w-full"
+          >
+            <div class="bg-green-200 text-2xl p-3 rounded-lg">
+              <img
+                src="../assets/icons/ManageTickets.svg"
+                alt="ManageTickets"
+                class="md:w-full w-[16px] h-auto"
+              />
+            </div>
+            <div>
+              <h3
+                class="text-[#147DC8] md:text-[16px] text-[14px] font-[500] font-noto"
+              >
+                Manage Tickets
+              </h3>
+              <p
+                class="text-[#29343D] md:text-[12px] text-[10px] font-[300] font-noto"
+              >
+                Enquiries for tickets
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center space-x-4 p-2 rounded-lg cursor-pointer md:w-[50%] w-full"
+          >
+            <div class="bg-red-200 text-2xl p-3 rounded-lg">
+              <img
+                src="../assets/icons/ManageEnquiries.svg"
+                alt="ManageEnquiries"
+                class="md:w-full w-[16px] h-auto"
+              />
+            </div>
+            <div>
+              <h3
+                class="text-[#147DC8] md:text-[16px] text-[14px] font-[500] font-noto"
+              >
+                Manage Enquiries
+              </h3>
+              <p
+                class="text-[#29343D] md:text-[12px] text-[10px] font-[300] font-noto"
+              >
+                Learn More Information
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="flex items-center space-x-4 p-2 rounded-lg cursor-pointer md:w-[50%] w-full"
+          >
+            <div class="bg-yellow-200 text-2xl p-3 rounded-lg">
+              <img
+                src="../assets/icons/ManageEstimates.svg"
+                alt="ManageEstimates"
+                class="md:w-full w-[16px] h-auto"
+              />
+            </div>
+            <div>
+              <h3
+                class="text-[#147DC8] md:text-[16px] text-[14px] font-[500] font-noto"
+              >
+                Manage Estimates
+              </h3>
+              <p
+                class="text-[#29343D] md:text-[12px] text-[10px] font-[300] font-noto"
+              >
+                To-Do Estimates
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- hover part responsive -->
+      <div class="bg-white md:hidden flex flex-col w-full">
+        <div
+          class="flex flex-col items-strat border-b border-solid space-x-4 p-0.5 hover:bg-[#29343d15] cursor-pointer w-full"
+        >
+          <h3
+            class="text-[#29343D] md:text-[16px] text-[12px] font-[500] font-noto"
+          >
+            Manage Invoice
+          </h3>
+          <p
+            class="text-[#29343D] !m-0 md:text-[12px] text-[10px] font-[300] font-noto"
+          >
+            Get Latest Invoice
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-strat border-b border-solid space-x-4 p-0.5 hover:bg-[#29343d15] cursor-pointer w-full"
+        >
+          <h3
+            class="text-[#29343D] md:text-[16px] text-[12px] font-[500] font-noto"
+          >
+            Manage Tickets
+          </h3>
+          <p
+            class="text-[#29343D] !m-0 md:text-[12px] text-[10px] font-[300] font-noto"
+          >
+            Enquiries for tickets
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-strat border-b border-solid space-x-4 p-0.5 hover:bg-[#29343d15] cursor-pointer w-full"
+        >
+          <h3
+            class="text-[#29343D] md:text-[16px] text-[12px] font-[500] font-noto"
+          >
+            Manage Enquiries
+          </h3>
+          <p
+            class="text-[#29343D] !m-0 md:text-[12px] text-[10px] font-[300] font-noto"
+          >
+            Learn More Information
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col items-strat border-b border-solid space-x-4 p-0.5 hover:bg-[#29343d15] cursor-pointer w-full"
+        >
+          <h3
+            class="text-[#29343D] md:text-[16px] text-[12px] font-[500] font-noto"
+          >
+            Manage Estimates
+          </h3>
+          <p
+            class="text-[#29343D] !m-0 md:text-[12px] text-[10px] font-[300] font-noto"
+          >
+            To-Do Estimates
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/Inventory.svg"
+          alt="Logo"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[80px] w-full md:text-center text-start"
+        >
+          Inventory
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+      </div>
+
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/Customer.svg"
+          alt="Logo"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[80px] w-full md:text-center text-start"
+        >
+          Customer
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+      </div>
+
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/PointofSale.svg"
+          alt="Logo"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[100px] w-[100px] md:text-center text-start"
+        >
+          Point of Sale
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+      </div>
+
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/Report.svg"
+          alt="Logo"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[60px] w-full md:text-center text-start"
+        >
+          Report
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+      </div>
+
+      <div
+        class="group flex items-center gap-2 cursor-pointer hover:bg-[#147DC8] duration-300 py-1 px-2 rounded-[6px] md:w-fit w-full relative"
+      >
+        <img
+          class="h-4 w-4"
+          src="../assets/icons/header/Expenses.svg"
+          alt="Logo"
+        />
+        <p
+          class="linkText group-hover:text-[#ffffff] text-[#29343D] group-hover:font-[900] font-[400] duration-300 md:w-[80px] w-full md:text-center text-start"
+        >
+          Expenses
+        </p>
+        <i
+          class="fa fa-angle-down group-hover:rotate-180 group-hover:text-white text-[#29343D] duration-300"
+        ></i>
+      </div>
+    </div>
+  </body>
+</html>
