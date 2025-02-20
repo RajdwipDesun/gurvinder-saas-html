@@ -83,3 +83,22 @@
 .eye-icon:hover {
     filter: invert(15%) sepia(83%) saturate(6486%) hue-rotate(257deg) brightness(87%) contrast(122%);
 }
+
+.index-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-link {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-blue-01);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
