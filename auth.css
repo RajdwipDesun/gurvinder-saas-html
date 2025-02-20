@@ -30,7 +30,7 @@
 } */
 
 .authBg {
-    background-image: url('../assets/images/authBg.png');
+    background-image: url('assets/images/authBg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
