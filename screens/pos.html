@@ -642,7 +642,8 @@
           </div>
         </div>
 
-        <div
+        <!-- comented add category and add property design -->
+        <!-- <div
           class="rounded-[4px] h-full p-4 bg-white md:w-1/2 w-full flex flex-col gap-[20px]"
         >
           <div class="flex gap-[20px]">
@@ -804,6 +805,101 @@
               </p>
             </div>
           </div>
+        </div> -->
+
+        <div
+          class="rounded-[4px] h-full p-4 bg-white md:w-1/2 w-full flex md:flex-row flex-col gap-[10px]"
+        >
+          <div class="w-full flex flex-col gap-2.5">
+            <p>IMEI / Serial</p>
+            <div class="w-full border border-solid border-[#00000010] flex flex-row items-center rounded">
+              <p class="p-2">IMEI</p>
+              <div class="border-r border-solid border-[#00000010] h-full"></div>
+              <input
+                type="text"
+                class="w-full !border-[#00000000] outline-none p-2"
+              />
+            </div>
+
+            <div
+              class="w-full border border-solid border-[#00000010] flex items-center rounded"
+            >
+              <button
+                class="active px-4 py-2 w-full"
+                onclick="switchTab(event, 'contact')"
+              >
+                Passcode
+              </button>
+              <button
+                class="active px-4 py-2 w-full"
+                onclick="switchTab(event, 'contact')"
+              >
+                Pattern
+              </button>
+            </div>
+
+            <div class="w-full border border-solid border-[#00000010] rounded">
+              <input
+                type="text"
+                class="w-full !border-[#00000000] outline-none p-2"
+              />
+            </div>
+
+            <p>Warranty Applied</p>
+            <div
+              class="w-full border border-solid border-[#00000010] flex flex-row rounded"
+            >
+              <input
+                type="text"
+                placeholder="00"
+                class="w-[20%] !border !border-solid !border-[#00000000] outline-none p-2"
+              />
+              <select
+                id="tax_class"
+                name="tax_class"
+                class="!w-[80%] py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer !border-[#00000000] outline-none p-2"
+                aria-label="Select tax class"
+              >
+                <option>Choose Option</option>
+              </select>
+            </div>
+
+            <p>Assigned to</p>
+            <div class="w-full border border-solid border-[#00000010] rounded">
+              <select
+                id="tax_class"
+                name="tax_class"
+                class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer !border-[#00000000] outline-none p-2"
+                aria-label="Select tax class"
+              >
+                <option>Choose Option</option>
+              </select>
+            </div>
+
+            <p>Task Due Date & Time</p>
+            <div class="w-full border border-solid border-[#00000010] rounded">
+              <select
+                id="tax_class"
+                name="tax_class"
+                class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer !border-[#00000000] outline-none p-2"
+                aria-label="Select tax class"
+              >
+                <option>Choose Option</option>
+              </select>
+            </div>
+
+            <p>Diagnostic Note</p>
+            <div
+              class="w-full border border-solid border-[#00000010] bg-[#EDFAFF] rounded"
+            >
+              <textarea
+                class="w-full !border-[#00000000] outline-none p-2 bg-[#00000000]"
+                placeholder="asdas"
+              ></textarea>
+            </div>
+          </div>
+          <div class="border-r border-solid border-[#00000010]"></div>
+          <div class="w-full">a</div>
         </div>
       </div>
     </div>
@@ -977,14 +1073,26 @@
             class="closeInventory"
           />
         </div>
-        <div class="p-4 flex lg:flex-row flex-col items-center justify-between gap-2">
+        <div
+          class="p-4 flex lg:flex-row flex-col items-center justify-between gap-2"
+        >
           <div
-            class="border border-solid border-[#147DC8] bg-[#147DC8] lg:w-[42%] w-full h-40 rounded-[7px]"
-          ></div>
+            class="border border-solid border-[#147DC8] bg-[#147DC8] lg:w-[42%] w-full h-40 rounded-[7px] flex flex-col items-center justify-center gap-2"
+          >
+            <img src="../assets/icons/plus.svg" alt="plus" />
+            <p class="text-white font-[600] text-[16px] font-noto">
+              Inventory Item
+            </p>
+          </div>
           <span>-&nbsp;or&nbsp;-</span>
           <div
-            class="border border-solid border-[#00000040] lg:w-[42%] w-full h-40 rounded-[7px]"
-          ></div>
+            class="border border-solid border-[#00000040] lg:w-[42%] w-full h-40 rounded-[7px] flex flex-col items-center justify-center gap-2"
+          >
+            <img src="../assets/icons/plusgray.svg" alt="plusgray" />
+            <p class="text-[#777A7A] font-[600] text-[16px] font-noto">
+              Special Part Order
+            </p>
+          </div>
         </div>
       </div>
     </div>
