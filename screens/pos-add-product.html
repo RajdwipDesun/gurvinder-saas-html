@@ -146,7 +146,8 @@
             </div>
             <div class="flex gap-2.5">
               <div
-                class="w-9 h-9 rounded-[8px] border border-solid border-[#00000010] bg-white flex items-center justify-center"
+                id="openCheckDeviceItemHistory"
+                class="w-9 h-9 rounded-[8px] border border-solid border-[#00000010] bg-white flex items-center justify-center cursor-pointer"
               >
                 <img
                   src="../assets/icons/search.svg"
@@ -155,7 +156,6 @@
                 />
               </div>
               <div
-                id="openModal"
                 class="w-9 h-9 rounded-[8px] border border-solid border-[#147DC8] bg-[#147DC8] flex items-center justify-center cursor-pointer"
               >
                 <img
@@ -598,6 +598,7 @@
                     </p>
                   </div>
                   <div
+                    id="openEstimateModal"
                     class="cursor-pointer bg-[#0984E3] lg:w-[23%] w-[48%] flex items-center justify-center gap-2 p-[12px] rounded-[3px]"
                   >
                     <img
@@ -610,6 +611,7 @@
                     </p>
                   </div>
                   <div
+                    id="openTicketModal"
                     class="cursor-pointer bg-[#03B288] lg:w-[23%] w-[48%] flex items-center justify-center gap-2 p-[12px] rounded-[3px]"
                   >
                     <img
@@ -637,6 +639,7 @@
                     </p>
                   </div>
                   <div
+                    id="openActionModal"
                     class="cursor-pointer bg-[#DBAA03] lg:w-[23%] w-[48%] flex items-center justify-center gap-2 p-[12px] rounded-[3px]"
                   >
                     <img
@@ -827,7 +830,7 @@
             </div>
 
             <div
-              id="openModalInventory"
+              id="openAddProduct"
               class="border border-solid border-[#EEEEF0] md:w-[25%] sm:w-[50%] w-full h-[130px] flex flex-col items-center justify-center gap-2.5 p-1 cursor-pointer"
             >
               <img
@@ -844,14 +847,14 @@
       </div>
     </div>
 
-    <div id="myModal" class="modal">
+    <div id="myAddProductModal" class="modal">
       <div
         class="modal-content lg:w-[40%] w-[90%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
       >
         <div
           class="flex justify-between items-center px-4 py-3 border-b border-solid border-[#00000015]"
         >
-          <h1 class="font-noto font font-[600]">New Customer</h1>
+          <h1 class="font-noto font font-[600]">Product</h1>
           <img
             src="../assets/icons/closeModal.svg"
             alt="closeModal"
@@ -861,135 +864,226 @@
         <div class="p-4">
           <div class="flex items-center justify-center">
             <div class="tabs mb-[10%]">
-              <button class="active" onclick="switchTab(event, 'contact')">
-                Contact
+              <button class="active" onclick="switchTab(event, 'product')">
+                Product
               </button>
-              <button onclick="switchTab(event, 'address')">Address</button>
+              <button onclick="switchTab(event, 'otherInformation')">
+                Other Information
+              </button>
             </div>
           </div>
           <div
-            id="contact"
+            id="product"
             class="tab-content flex flex-col items-center gap-4 w-full"
           >
-            <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" placeholder="John Doe" />
-              <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Full Name is mandatory</span> -->
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
+              <div class="form-group">
+                <label>Manufactuer</label>
+                <input type="text" placeholder="" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Manufactuer is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>Device Model</label>
+                <div class="relative w-full">
+                  <input type="text" placeholder="" />
+                  <div
+                    class="absolute flex items-center gap-1 top-[19%] left-[4%]"
+                  >
+                    <div
+                      class="flex items-center gap-1 bg-[#D9D9D9] px-2 py-0.5 rounded-[3px]"
+                    >
+                      <p class="text-[12px]">Xflip1</p>
+                      <img
+                        src="../assets/icons/tagcross.svg"
+                        alt="tagcross"
+                        class="cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Device Model is mandatory</span> -->
+              </div>
             </div>
 
             <div class="flex lg:flex-row flex-col gap-4 w-full">
               <div class="form-group">
-                <label>Phone Number</label>
-                <input type="tel" placeholder="202 555 0111" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Phone Number is mandatory</span> -->
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="someone@example.com" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Email is mandatory</span> -->
-              </div>
-            </div>
-
-            <div class="flex lg:flex-row flex-col gap-4 w-full">
-              <div class="form-group">
-                <label for="tax_class">Tax Class</label>
+                <label for="tax_class">Category</label>
                 <select
                   id="tax_class"
                   name="tax_class"
                   class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer"
-                  aria-label="Select tax class"
+                  aria-label="Select Type"
                 >
-                  <option>Choose Option</option>
+                  <option>Select Type</option>
                 </select>
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Tax Class is mandatory</span> -->
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Category is mandatory</span> -->
               </div>
               <div class="form-group">
-                <label for="referral_source">How did you hear about us?</label>
+                <label for="referral_source">Tax Class</label>
                 <select
                   id="referral_source"
                   name="referral_source"
                   class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer"
-                  aria-label="Select referral source"
+                  aria-label="Select Tax Class"
                 >
-                  <option>Select Option</option>
+                  <option>Select Tax Class</option>
                 </select>
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Please select an option</span> -->
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Please select a Tax Class</span> -->
               </div>
             </div>
 
-            <button class="save-btn">Save</button>
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
+              <div class="form-group">
+                <label>Minimum Price</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Minimum Price is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>Retail Price</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Retail Price is mandatory</span> -->
+              </div>
+            </div>
+
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
+              <div class="form-group">
+                <label>Cost Price</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Cost Price is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>On Hand</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">On Hand is mandatory</span> -->
+              </div>
+            </div>
+            <div class="flex items-center justify-between w-full">
+              <div class="flex items-center gap-2">
+                <div class="form-group">
+                  <label>Show on POS</label>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    id="toggleSwitch"
+                    class="sr-only peer"
+                  />
+                  <div
+                    class="w-14 h-8 bg-gray-300 peer-checked:bg-blue-500 rounded-full transition-all"
+                  >
+                    <div
+                      id="status"
+                      class="w-6 h-6 bg-white rounded-full shadow-md absolute top-1 left-1 peer-checked:translate-x-6 transition-all"
+                    ></div>
+                  </div>
+                </label>
+              </div>
+              <button class="save-btn">Save</button>
+            </div>
           </div>
 
           <div
-            id="address"
+            id="otherInformation"
             class="tab-content flex flex-col items-center gap-4 w-full"
             style="display: none"
           >
             <div class="flex lg:flex-row flex-col gap-4 w-full">
               <div class="form-group">
-                <label>Street Address</label>
-                <input type="text" placeholder="DN-10, Salt Lake, Sector V," />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Street address is mandatory</span> -->
+                <div
+                  class="border border-dashed border-[D9D9D9] rounded-[8px] p-1.5 w-full flex items-center gap-5"
+                >
+                  <img
+                    src="../assets/icons/dummyimage.svg"
+                    alt="dummyimage"
+                    width="50"
+                    height="50"
+                  />
+                  <div class="flex flex-col gap-1">
+                    <div class="form-group">
+                      <label class="!m-0">Upload Image</label>
+                    </div>
+                    <div class="flex gap-1">
+                      <button
+                        class="px-3 py-1 bg-[#147DC8] rounded text-white text-[12px]"
+                      >
+                        Upload
+                      </button>
+                      <button
+                        class="px-3 py-1 bg-[#E30D24] rounded text-white text-[12px]"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="form-group">
-                <label>House / Apartment / Floor No.</label>
-                <input type="txt" placeholder="304, DN - 10" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">House / Apartment / Floor No. is mandatory</span> -->
-              </div>
-            </div>
-
-            <div class="flex lg:flex-row flex-col gap-4 w-full">
-              <div class="form-group">
-                <label>Postcode</label>
-                <input type="text" placeholder="700 091" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">postcode is mandatory</span> -->
-              </div>
-              <div class="form-group">
-                <label>City</label>
-                <input type="txt" placeholder="Biddhanagar" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">City is mandatory</span> -->
-              </div>
-            </div>
-
-            <div class="flex lg:flex-row flex-col gap-4 w-full">
-              <div class="form-group">
-                <label>State</label>
-                <input type="text" placeholder="West Bengal" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">State is mandatory</span> -->
-              </div>
-              <div class="form-group">
-                <label>Country</label>
-                <input type="txt" placeholder="India" />
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Country is mandatory</span> -->
-              </div>
-            </div>
-
-            <div class="flex lg:flex-row flex-col gap-4 w-full">
-              <div class="form-group">
-                <label>Organization</label>
+                <label>Warranty ( In Days)</label>
                 <select
                   class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer"
                 >
                   <option
                     class="py-1.5 px-2 hover:py-1.5 hover:px-2 cursor-pointer"
                   >
-                    Technology
+                    90
                   </option>
                 </select>
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Organization is mandatory</span> -->
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Warranty ( In Days) is mandatory</span> -->
               </div>
+            </div>
+
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
               <div class="form-group">
-                <label>Network</label>
+                <label>Stock Warning</label>
                 <select
                   class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer"
                 >
                   <option
                     class="py-1.5 px-2 hover:py-1.5 hover:px-2 cursor-pointer"
                   >
-                    Select Carrier
+                    Select Type
                   </option>
                 </select>
-                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Network is mandatory</span> -->
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Stock Warning is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>Re-Order Level</label>
+                <input type="txt" placeholder="Select Tax Class" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Re-Order Level is mandatory</span> -->
+              </div>
+            </div>
+
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
+              <div class="form-group">
+                <label>SKU Code</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">SKU Code is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>UPC Code</label>
+                <input type="text" placeholder="0" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">UPC Code is mandatory</span> -->
+              </div>
+            </div>
+
+            <div class="flex lg:flex-row flex-col gap-4 w-full">
+              <div class="form-group">
+                <label>Inventory Valuation</label>
+                <input type="text" placeholder="WAC (Weighted Average Cost)" />
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Inventory Valuation is mandatory</span> -->
+              </div>
+              <div class="form-group">
+                <label>Supplier</label>
+                <select
+                  class="py-1.5 px-2 hover:py-1.5 hover:px-2 text-[#ACAAB1] cursor-pointer"
+                >
+                  <option
+                    class="py-1.5 px-2 hover:py-1.5 hover:px-2 cursor-pointer"
+                  >
+                    Select Supplier
+                  </option>
+                </select>
+                <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Supplier is mandatory</span> -->
               </div>
             </div>
 
@@ -999,78 +1093,531 @@
       </div>
     </div>
 
-    <div id="myModalInventory" class="modalInventory">
+    <div id="myCheckDeviceItemHistoryModal" class="modal">
       <div
-        class="modal-content lg:w-[35%] w-[70%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
+        class="modal-content lg:w-[75%] w-[90%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
       >
         <div
           class="flex justify-between items-center px-4 py-3 border-b border-solid border-[#00000015]"
         >
-          <h1 class="font-noto font font-[600]">Add Inventory</h1>
+          <div></div>
+          <h1 class="font-noto font font-[600]">Check Device / Item History</h1>
           <img
             src="../assets/icons/closeModal.svg"
             alt="closeModal"
-            class="closeInventory"
+            class="close closeCheckDeviceItemHistory"
           />
         </div>
-        <div
-          class="p-4 flex lg:flex-row flex-col items-center justify-between gap-2"
-        >
+        <div class="p-4">
           <div
-            class="border border-solid border-[#147DC8] bg-[#147DC8] lg:w-[42%] w-full h-40 rounded-[7px] flex flex-col items-center justify-center gap-2"
+            class="p-4 bg-[#F0F2F2] border border-solid border-[000000]/[30%]"
           >
-            <img src="../assets/icons/plus.svg" alt="plus" />
-            <p class="text-white font-[600] text-[16px] font-noto">
-              Inventory Item
-            </p>
+            <div class="tab-content flex flex-col items-center gap-4 w-full">
+              <div class="flex lg:flex-row flex-col gap-4 w-full">
+                <div class="form-group">
+                  <label>Device IMEI/Serial</label>
+                  <input type="text" placeholder="123456789" />
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Device IMEI/Serial is mandatory</span> -->
+                </div>
+                <div class="form-group">
+                  <label>Ticket ID</label>
+                  <input type="text" placeholder="202 555 0111" />
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Ticket ID is mandatory</span> -->
+                </div>
+                <div class="form-group">
+                  <label>Invoice ID</label>
+                  <input type="text" placeholder="202 555 0111" />
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Invoice ID is mandatory</span> -->
+                </div>
+              </div>
+
+              <div class="flex lg:flex-row flex-col gap-4 w-full">
+                <div class="form-group">
+                  <label>Ticket ID</label>
+                  <input type="text" placeholder="202 555 0111" />
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Ticket ID is mandatory</span> -->
+                </div>
+                <div class="form-group">
+                  <label>Customer Name</label>
+                  <input type="text" placeholder="John Doe" />
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Customer Name is mandatory</span> -->
+                </div>
+                <div class="form-group">
+                  <label>Customer Mobile</label>
+                  <div
+                    class="border border-solid border-[#999999] rounded-[5px] flex items-center w-full"
+                  >
+                    <div
+                      class="w-12 bg-[#D9D9D9] h-full rounded-l-[5px] text-[14px] flex items-center justify-center"
+                    >
+                      +91
+                    </div>
+                    <input
+                      type="tel"
+                      placeholder="987 456 3456"
+                      class="!border-none !outline-none !rounded-l-[0px]"
+                    />
+                  </div>
+                  <!-- <span class="text-red-400 text-[12px] absolute -bottom-4">Customer Mobile is mandatory</span> -->
+                </div>
+              </div>
+
+              <div class="flex items-center justify-start w-full">
+                <button
+                  class="save-btn my-2 flex items-center justify-center gap-2 text-[14px] w-[6rem]"
+                >
+                  <img
+                    src="../assets/icons/searchWhite.svg"
+                    alt="searchWhite"
+                    width="14"
+                    height="14"
+                  />Search
+                </button>
+              </div>
+            </div>
           </div>
-          <span>-&nbsp;or&nbsp;-</span>
-          <div
-            class="border border-solid border-[#00000040] lg:w-[42%] w-full h-40 rounded-[7px] flex flex-col items-center justify-center gap-2"
-          >
-            <img src="../assets/icons/plusgray.svg" alt="plusgray" />
-            <p class="text-[#777A7A] font-[600] text-[16px] font-noto">
-              Special Part Order
+          <div class="flex flex-col items-start w-full">
+            <p class="text-[#262A2A] font-noto text-[20px] font-[700] py-3">
+              Device Details
             </p>
+            <div
+              class="border border-solid border-[505050]/[61.57%] rounded-[8px] p-3 w-full"
+            >
+              <p class="text-start font-noto text-[14px] text-[#444050]">
+                No record available
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myActionModal" class="modal">
+      <div
+        class="modal-content lg:w-[50%] w-[90%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
+      >
+        <div
+          class="flex justify-between items-center px-4 py-3 border-b border-solid border-[#00000015]"
+        >
+          <div></div>
+          <h1 class="font-noto font font-[600]">Action</h1>
+          <img
+            src="../assets/icons/closeModal.svg"
+            alt="closeModal"
+            class="close closeActionModal"
+          />
+        </div>
+        <div class="flex gap-4 flex-col p-4">
+          <div
+            class="flex flex-col md:flex-row flex-col items-center justify-between gap-4"
+          >
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/Pause.svg"
+                alt="Pause"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">Pause</p>
+            </div>
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/OpenPause.svg"
+                alt="OpenPause"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                Open Pause
+              </p>
+            </div>
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/ViewSelfCheckIn.svg"
+                alt="ViewSelfCheckIn"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                View Self Check-In
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col md:flex-row flex-col items-center justify-between gap-4"
+          >
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/ViewRefund.svg"
+                alt="ViewRefund"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                View Refund
+              </p>
+            </div>
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/ViewEstimates.svg"
+                alt="ViewEstimates"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                View Estimates
+              </p>
+            </div>
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/CreateInquiry.svg"
+                alt="CreateInquiry"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                Create Inquiry
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col md:flex-row flex-col items-center justify-between gap-4"
+          >
+            <div
+              class="hover:bg-[#2DA7FE] bg-[#147DC8] cursor-pointer md:w-[32%] w-full p-4 flex flex-col items-center justify-center gap-1 rounded-[10px]"
+            >
+              <img
+                src="../assets/icons/OpenCashDrawer.svg"
+                alt="OpenCashDrawer"
+                width="34"
+                height="34"
+              />
+              <p class="font-noto text-[16px] text-white font-[500]">
+                Open Cash Drawer
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myTicketModal" class="modal">
+      <div
+        class="modal-content lg:w-[40%] w-[90%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
+      >
+        <div
+          class="flex justify-between items-center px-4 py-3 border-b border-solid border-[#00000015]"
+        >
+          <div></div>
+          <h1 class="font-noto font font-[600]">Ticket</h1>
+          <img
+            src="../assets/icons/closeModal.svg"
+            alt="closeModal"
+            class="close closeTicketModal"
+          />
+        </div>
+        <div class="py-4 px-6 flex flex-col gap-5">
+          <div
+            class="border border-solid border-[#EBEBED] rounded-[8px] p-0.5 flex flex-col gap-3 pb-3"
+          >
+            <div
+              class="bg-[#EBEBED] w-full p-1.5 flex items-center justify-center rounded-[8px]"
+            >
+              <p class="text-[#565656] font-noto text-[14px]">
+                You probably want to do one of the following
+              </p>
+            </div>
+            <div class="p-2 flex flex-wrap justify-between gap-4">
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/printer.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Print Label</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/printer.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Print Service Receipt</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/printer.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Print Thermal Receipt</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/ViewTicket.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">View Ticket</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/EmailTicket.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Email Ticket</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/addCategory.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">New Sale</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myEstimateModal" class="modal">
+      <div
+        class="modal-content lg:w-[40%] w-[90%] lg:h-auto h-[85%] lg:overflow-hidden overflow-auto overscroll-none"
+      >
+        <div
+          class="flex justify-between items-center px-4 py-3 border-b border-solid border-[#00000015]"
+        >
+          <div></div>
+          <h1 class="font-noto font font-[600]">Estimate</h1>
+          <img
+            src="../assets/icons/closeModal.svg"
+            alt="closeModal"
+            class="close closeEstimateModal"
+          />
+        </div>
+        <div class="py-4 px-6 flex flex-col gap-5">
+          <div
+            class="border border-solid border-[#EBEBED] rounded-[8px] p-0.5 flex flex-col gap-3 pb-3"
+          >
+            <div
+              class="bg-[#EBEBED] w-full p-1.5 flex items-center justify-center rounded-[8px]"
+            >
+              <p class="text-[#565656] font-noto text-[14px]">
+                You probably want to do one of the following
+              </p>
+            </div>
+            <div class="p-2 flex flex-wrap justify-between gap-4">
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/printer.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Print Service Receipt</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/printer.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Print Thermal Receipt</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/EmailEstimate.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Email Estimate</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/ViewTicket.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">Download Estimate</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/ViewEstimate.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">View Estimate</p>
+              </div>
+
+              <div
+                class="border border-solid border-[#000000]/[10%] flex flex-col items-center justify-center gap-0.5 p-4 w-[30%]"
+              >
+                <img
+                  src="../assets/icons/addCategory.svg"
+                  alt="printer"
+                  width="35"
+                  height="35"
+                />
+                <p class="text-[#1E293B] text-[12px]">New Sale</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <script>
-      var modal = document.getElementById("myModal");
-      var btn = document.getElementById("openModal");
-      var span = document.getElementsByClassName("close")[0];
+      var modalAddProduct = document.getElementById("myAddProductModal");
+      var btnAddProduct = document.getElementById("openAddProduct");
+      var spanAddProduct = document.getElementsByClassName("close")[0];
 
-      btn.onclick = function () {
-        modal.style.display = "flex";
+      btnAddProduct.onclick = function () {
+        modalAddProduct.style.display = "flex";
       };
 
-      span.onclick = function () {
-        modal.style.display = "none";
+      spanAddProduct.onclick = function () {
+        modalAddProduct.style.display = "none";
       };
 
       window.onclick = function (event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
+        if (event.target == modalAddProduct) {
+          modalAddProduct.style.display = "none";
         }
       };
 
-      var modalInventory = document.getElementById("myModalInventory");
-      var btnInventory = document.getElementById("openModalInventory");
-      var spanInventory = document.getElementsByClassName("closeInventory")[0];
+      var modalCheckDeviceItemHistory = document.getElementById(
+        "myCheckDeviceItemHistoryModal"
+      );
+      var btnCheckDeviceItemHistory = document.getElementById(
+        "openCheckDeviceItemHistory"
+      );
+      var spanCheckDeviceItemHistory = document.getElementsByClassName(
+        "closeCheckDeviceItemHistory"
+      )[0];
 
-      btnInventory.onclick = function () {
-        modalInventory.style.display = "flex";
+      btnCheckDeviceItemHistory.onclick = function () {
+        modalCheckDeviceItemHistory.style.display = "flex";
       };
 
-      spanInventory.onclick = function () {
-        modalInventory.style.display = "none";
+      spanCheckDeviceItemHistory.onclick = function () {
+        modalCheckDeviceItemHistory.style.display = "none";
       };
 
       window.onclick = function (event) {
-        if (event.target == modalInventory) {
-          modalInventory.style.display = "none";
+        if (event.target == modalCheckDeviceItemHistory) {
+          modalCheckDeviceItemHistory.style.display = "none";
+        }
+      };
+
+      var modalActionModal = document.getElementById("myActionModal");
+      var btnActionModal = document.getElementById("openActionModal");
+      var spanActionModal =
+        document.getElementsByClassName("closeActionModal")[0];
+
+      btnActionModal.onclick = function () {
+        modalActionModal.style.display = "flex";
+      };
+
+      spanActionModal.onclick = function () {
+        modalActionModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modalActionModal) {
+          modalActionModal.style.display = "none";
+        }
+      };
+
+      var modalTicketModal = document.getElementById("myTicketModal");
+      var btnTicketModal = document.getElementById("openTicketModal");
+      var spanTicketModal =
+        document.getElementsByClassName("closeTicketModal")[0];
+
+      btnTicketModal.onclick = function () {
+        modalTicketModal.style.display = "flex";
+      };
+
+      spanTicketModal.onclick = function () {
+        modalTicketModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modalTicketModal) {
+          modalTicketModal.style.display = "none";
+        }
+      };
+
+      var modalEstimateModal = document.getElementById("myEstimateModal");
+      var btnEstimateModal = document.getElementById("openEstimateModal");
+      var spanEstimateModal =
+        document.getElementsByClassName("closeEstimateModal")[0];
+
+      btnEstimateModal.onclick = function () {
+        modalEstimateModal.style.display = "flex";
+      };
+
+      spanEstimateModal.onclick = function () {
+        modalEstimateModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modalEstimateModal) {
+          modalEstimateModal.style.display = "none";
         }
       };
 
@@ -1084,6 +1631,13 @@
           .forEach((btn) => btn.classList.remove("active"));
         event.currentTarget.classList.add("active");
       }
+
+      const toggleSwitch = document.getElementById("toggleSwitch");
+      const status = document.getElementById("status");
+
+      toggleSwitch.addEventListener("change", function () {
+        status.style.left = this.checked ? "48%" : "0.25rem";
+      });
     </script>
   </body>
 </html>
